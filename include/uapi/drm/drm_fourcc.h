@@ -196,6 +196,16 @@ extern "C" {
 #define DRM_FORMAT_NV42		fourcc_code('N', 'V', '4', '2') /* non-subsampled Cb:Cr plane */
 
 /*
+ * 2 plane YCbCr
+ * index 0 = Y plane, [15:0] Y little endian where Pxxx indicate
+ * component xxx msb Y [xxx:16-xxx]
+ * index 1 = Cr:Cb plane, [31:0] Cr:Cb little endian [xxx:16-xxx:xxx:16-xxx]
+ */
+#define DRM_FORMAT_P010		fourcc_code('P', '0', '1', '0') /* 2x2 subsampled Cr:Cb plane, 10 bit per channel */
+#define DRM_FORMAT_P012		fourcc_code('P', '0', '1', '2') /* 2x2 subsampled Cr:Cb plane, 12 bit per channel */
+#define DRM_FORMAT_P016		fourcc_code('P', '0', '1', '6') /* 2x2 subsampled Cr:Cb plane, 16 bit per channel */
+
+/*
  * 3 plane YCbCr
  * index 0: Y plane, [7:0] Y
  * index 1: Cb plane, [7:0] Cb
